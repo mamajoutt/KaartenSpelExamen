@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>KaartSpel</title>
+</head>
+<body>
+ Dit is Mohamed Amajoutt zijn kaartspel.
+<script>
+var Deck = (function(){
+  var arrayKaarten = ["schoppen", "harten", "klaveren", "ruiten", "twee", "drie", "vier","vijf","zes","zeven","acht","negen", "tien", "boer", "vrouw", "heer", "aas"];
+
+
+  var instance;
+
+  function init(){
+    var bovensteKaart = arrayKaarten[Math.floor(Math.random()*arrayKaarten.length)];
+    return{
+      getBovensteKaart: function(){
+        return bovensteKaart;
+      }
+    };
+  };
+
+  return {
+    getInstance: function () {
+            if (!instance) {
+                instance = init();
+            }
+            return instance;
+        }
+  };
+
+})();
+
+var deck1 = Deck.getInstance();
+alert("Bovenste kaart van deck =====> " + deck1.getBovensteKaart());
+var deck2 = Deck.getInstance();
+alert("Bovenste kaart van deck =====> " + deck2.getBovensteKaart());
+</script>
+</body>
+</html>
